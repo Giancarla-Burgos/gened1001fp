@@ -1,64 +1,140 @@
+<!-- NEWS ARTICLE (path1.html) -->
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Adventure News - Mysterious Forest Encounter</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Forest Daily — Mysterious Encounter Alarms Locals</title>
   <style>
     body {
-      font-family: Georgia, serif;
+      font-family: 'Georgia', serif;
       background-color: #f4f4f4;
-      color: #333;
-      max-width: 700px;
-      margin: auto;
-      padding: 20px;
+      margin: 0;
+      padding: 0;
     }
 
-    h1 {
-      font-size: 2.5em;
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background-color: white;
+      padding: 40px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
       border-bottom: 2px solid #ccc;
       padding-bottom: 10px;
     }
 
+    header h1 {
+      font-size: 2.8em;
+      margin-bottom: 5px;
+    }
+
     .byline {
       font-style: italic;
-      color: #777;
-      margin-bottom: 20px;
+      font-size: 0.9em;
+      color: #666;
     }
 
-    .article {
-      line-height: 1.7;
+    .article-meta {
+      text-align: center;
+      font-size: 0.9em;
+      color: #888;
+      margin-bottom: 30px;
+    }
+
+    .photo {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .photo img {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #ccc;
+    }
+
+    .photo .caption {
+      font-size: 0.85em;
+      color: #555;
+      margin-top: 5px;
+    }
+
+    .content {
+      column-count: 2;
+      column-gap: 40px;
       font-size: 1.1em;
+      line-height: 1.7;
+      text-align: justify;
     }
 
-    .continue-button {
-      display: block;
+    .buttons {
       margin-top: 40px;
-      padding: 12px 24px;
-      background-color: #0077cc;
-      color: white;
-      text-decoration: none;
-      border-radius: 6px;
-      width: fit-content;
+      text-align: center;
     }
 
-    .continue-button:hover {
-      background-color: #005fa3;
+    .buttons a {
+      display: inline-block;
+      background-color: #222;
+      color: white;
+      padding: 12px 24px;
+      margin: 10px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .buttons a:hover {
+      background-color: #444;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.8em;
+      color: #999;
+      margin-top: 60px;
+      border-top: 1px solid #ddd;
+      padding-top: 20px;
     }
   </style>
 </head>
 <body>
-  <h1>Mysterious Stranger Spotted in the Forest</h1>
-  <p class="byline">By Forest Daily Staff Writer | April 8, 2025</p>
 
-  <div class="article">
-    <p>Early this morning, a traveler reported encountering a hooded figure deep within the northern part of the forest. Witnesses say the stranger appeared suddenly, muttered a strange phrase, and vanished into the mist.</p>
+  <div class="container">
+    <header>
+      <h1>Forest Daily</h1>
+      <div class="byline">By Lina Veras | Staff Reporter</div>
+    </header>
 
-    <p>"I was just trying to find my way home," said the traveler, who asked to remain anonymous. "But when I looked up, they were already gone."</p>
+    <div class="article-meta">April 8, 2025 • Mistwood, Northern Territory</div>
 
-    <p>The mayor has issued a warning to all residents and travelers to avoid the area until further notice. However, rumors suggest that those brave enough to follow the stranger may uncover the forest's long-lost secrets.</p>
+    <div class="photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/Forest_Mist.jpg" alt="Misty Forest">
+      <div class="caption">Photo taken by a local hiker just minutes before the reported sighting.</div>
+    </div>
+
+    <div class="content">
+      Residents near the Mistwood region woke up to eerie silence and reports of an unidentified figure cloaked in fog. Multiple witnesses described seeing a person — or possibly something less human — standing motionless in the center of the trail before vanishing.
+
+      Local hunter Ray Alvers stated, “It was standing dead still. Tall, covered in some kind of robe, and it shimmered — like heat waves in the air.” While no injuries were reported, authorities have advised the public to avoid Mistwood until further notice.
+
+      This marks the third sighting this month, following similar events in the neighboring Ridgepine and Hollowend regions. “I’ve never seen anything like this in my 17 years of patrol,” said Forest Warden Talia Murn. “Whatever it is, it doesn’t want to be found — but it does want to be seen.”
+
+      Experts from the University of Hidden Realms are reportedly analyzing environmental anomalies from the area. Locals are calling the figure “The Watcher,” and theories range from spirit folklore to time travelers.
+
+      A formal investigation has been launched. Forest Daily will continue to follow the story as it unfolds.
+    </div>
+
+    <div class="buttons">
+      <a href="path1-follow.html">Read the Research Article</a>
+      <a href="index.html">Return to Start</a>
+    </div>
+
+    <footer>
+      Forest Daily © 2025 · All rights reserved · Contact: editor@forestdaily.net
+    </footer>
   </div>
 
-  <a class="continue-button" href="path1-follow.html">Follow the Stranger</a>
-  <a class="continue-button" href="index.html">Return to Start</a>
 </body>
 </html>
