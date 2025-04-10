@@ -1,12 +1,125 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Adventure Game</title>
+  <title>Welcome to the Adventure</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background: radial-gradient(circle at center, #2b0000, #000000);
+      color: #fefefe;
+      font-family: 'Georgia', serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px rgba(255, 100, 100, 0.5);
+    }
+
+    p {
+      font-size: 1.3rem;
+      margin-bottom: 40px;
+      text-align: center;
+      max-width: 600px;
+    }
+
+    .btn {
+      background-color: rgba(255, 50, 50, 0.9);
+      color: white;
+      padding: 14px 28px;
+      margin: 10px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 0 15px rgba(255, 80, 80, 0.6);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(255, 100, 100, 0.9);
+    }
+
+    /* Floating embers */
+    .ember {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: orange;
+      border-radius: 50%;
+      animation: float 6s infinite ease-in;
+      opacity: 0.8;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) scale(0.5);
+        opacity: 0.6;
+      }
+      100% {
+        transform: translateY(-10vh) scale(1);
+        opacity: 0;
+      }
+    }
+
+    /* Flickering candle */
+    .candle {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 100px;
+      background: #222;
+      border-radius: 10px;
+    }
+
+    .flame {
+      width: 20px;
+      height: 20px;
+      background: radial-gradient(circle, #ffcc00, #ff3300);
+      border-radius: 50%;
+      position: absolute;
+      top: -10px;
+      left: 20px;
+      animation: flicker 0.2s infinite alternate;
+      box-shadow: 0 0 20px #ff3300;
+    }
+
+    @keyframes flicker {
+      0% { transform: scale(1); opacity: 1; }
+      100% { transform: scale(1.2); opacity: 0.8; }
+    }
+  </style>
 </head>
 <body>
   <h1>Welcome to the Adventure</h1>
   <p>You wake up in a mysterious forest. What do you do?</p>
-  <button onclick="location.href='path1.html'">Go left</button>
-  <button onclick="location.href='path2.html'">Go right</button>
+  <a class="btn" href="path1.html">Go left</a>
+  <a class="btn" href="path2.html">Go right</a>
+
+  <!-- Flickering candle in corner -->
+  <div class="candle">
+    <div class="flame"></div>
+  </div>
+
+  <!-- Embers -->
+  <script>
+    for (let i = 0; i < 30; i++) {
+      const ember = document.createElement('div');
+      ember.classList.add('ember');
+      ember.style.left = Math.random() * 100 + 'vw';
+      ember.style.animationDelay = Math.random() * 6 + 's';
+      document.body.appendChild(ember);
+    }
+  </script>
 </body>
 </html>
