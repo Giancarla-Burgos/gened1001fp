@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sealed Letter</title>
+  <style>
+    body {
+      background-color: #1a0000;
+      color: #f2f2f2;
+      font-family: 'Georgia', serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+
+    .seal {
+      cursor: pointer;
+      width: 100px;
+      transition: transform 0.3s ease, opacity 0.5s ease;
+    }
+
+    .seal:hover {
+      transform: scale(1.1);
+    }
+
+    .letter {
+      display: none;
+      max-width: 600px;
+      padding: 30px;
+      background-color: rgba(255, 250, 230, 0.9);
+      color: #2a1a00;
+      border: 2px solid #8b4513;
+      box-shadow: 0 0 10px rgba(0,0,0,0.6);
+      font-size: 1.1em;
+      line-height: 1.6;
+      text-align: left;
+    }
+
+    .open .seal {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .open .letter {
+      display: block;
+      animation: fadeIn 1s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="wrapper">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Wax_seal_red.svg/200px-Wax_seal_red.svg.png" alt="Seal" class="seal" onclick="openLetter()">
+
+    <div class="letter">
+      <h2>To the One Who Chose to Follow</h2>
+      <p>If you're reading this, it means you've seen what they don't want you to see. The Watcher wasn't just a myth — and the distortion you witnessed is just the beginning.</p>
+      <p>You must head to the ruins beneath the old observatory. There's a key hidden behind the southernmost column. Do not trust the mirrors.</p>
+      <p><strong>– E.V.</strong></p>
+
+      <a href="path1-lab.html" style="display:block; margin-top:20px; color:#8b0000;">Go to the Observatory Ruins</a>
+    </div>
+  </div>
+
+  <script>
+    function openLetter() {
+      document.getElementById("wrapper").classList.add("open");
+    }
+  </script>
+
+</body>
+</html>
