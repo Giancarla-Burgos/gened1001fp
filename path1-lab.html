@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The Reflection Room</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(circle at center, #1a0000, #000000);
+      overflow: hidden;
+      color: #eee;
+      font-family: 'Georgia', serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 2.5em;
+      text-shadow: 0 0 10px rgba(255, 100, 100, 0.6);
+    }
+
+    .mirror-wall {
+      display: flex;
+      gap: 40px;
+      margin-top: 40px;
+      position: relative;
+    }
+
+    .mirror {
+      width: 160px;
+      height: 240px;
+      background: linear-gradient(145deg, #111, #333);
+      border: 2px solid #660000;
+      border-radius: 12px;
+      box-shadow: inset 0 0 10px rgba(255,255,255,0.1), 0 0 20px rgba(255, 60, 60, 0.3);
+      position: relative;
+      transition: transform 0.3s, box-shadow 0.4s;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .mirror:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(255, 80, 80, 0.6);
+    }
+
+    .mirror-message {
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
+      font-size: 0.9em;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 1s;
+    }
+
+    .mirror:hover .mirror-message {
+      opacity: 1;
+    }
+
+    .cracked {
+      background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Cracked_glass.svg/1200px-Cracked_glass.svg.png') center center no-repeat;
+      background-size: cover;
+      filter: grayscale(0.6);
+    }
+
+    .portal {
+      animation: pulse 1.5s infinite;
+      border-color: #ff5050;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 10px #ff5050; }
+      50% { box-shadow: 0 0 25px #ff8080; }
+      100% { box-shadow: 0 0 10px #ff5050; }
+    }
+
+    .buttons {
+      margin-top: 40px;
+    }
+
+    .btn {
+      background: #880000;
+      padding: 12px 20px;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      margin: 0 10px;
+      font-weight: bold;
+      box-shadow: 0 0 10px rgba(255, 50, 50, 0.4);
+    }
+
+    .btn:hover {
+      background: #aa0000;
+    }
+  </style>
+</head>
+<body>
+  <h1>The Reflection Room</h1>
+  <div class="mirror-wall">
+    <div class="mirror" onclick="crackMirror(this)">
+      <div class="mirror-message">Another you... made a different choice.</div>
+    </div>
+    <div class="mirror portal" onclick="goToNextPath()">
+      <div class="mirror-message">You are being watched.</div>
+    </div>
+    <div class="mirror" onclick="crackMirror(this)">
+      <div class="mirror-message">You shouldn't have read the letter.</div>
+    </div>
+  </div>
+
+  <div class="buttons">
+    <a href="index.html" class="btn">Return to Start</a>
+  </div>
+
+  <script>
+    function crackMirror(mirror) {
+      if (!mirror.classList.contains("cracked")) {
+        mirror.classList.add("cracked");
+      }
+    }
+
+    function goToNextPath() {
+      window.location.href = "path1-lab.html";
+    }
+  </script>
+</body>
+</html>
