@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The Observatory Ruins</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Courier New', monospace;
+      background: #0d0d0d;
+      color: #33ffcc;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    .screen {
+      background-color: #111;
+      padding: 40px;
+      border: 2px solid #33ffcc;
+      box-shadow: 0 0 30px #33ffcc;
+      width: 80%;
+      max-width: 700px;
+      text-align: left;
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: #00ffaa;
+      text-align: center;
+    }
+
+    .terminal-text {
+      margin-top: 20px;
+      white-space: pre-line;
+      font-size: 1.05em;
+    }
+
+    .choice {
+      margin-top: 30px;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .btn {
+      padding: 12px 18px;
+      background: #33ffcc;
+      color: #000;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #00ccaa;
+    }
+
+    .flicker {
+      animation: flicker 0.1s infinite alternate;
+    }
+
+    @keyframes flicker {
+      from { opacity: 0.8; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="screen">
+    <h1 class="flicker">Accessing Observatory Ruins...</h1>
+
+    <div class="terminal-text">
+      > Terminal link established.<br>
+      > Decryption successful.<br>
+      > Message from ARCHIVIST NODE_07:<br><br>
+
+      "You’ve arrived. Not many make it this far. Underneath this observatory lies the real reason for the Watcher's presence.
+      
+      In the catacombs, you’ll find the Vault of Echoes. We left something behind.
+      
+      Proceed carefully. Not all who linger in the archives are... passive."
+    </div>
+
+    <div class="choice">
+      <a href="vault-of-echoes.html" class="btn">Enter the Vault</a>
+      <a href="reflection-room.html" class="btn">Return to Mirrors</a>
+    </div>
+  </div>
+</body>
+</html>
