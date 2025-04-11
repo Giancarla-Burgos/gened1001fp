@@ -6,13 +6,19 @@
   <style>
     body {
       margin: 0;
-      padding: 20px 16px 80px;
+      padding: 0;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       background: #e5e5ea;
       color: #000;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
     }
 
     .conversation {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px 16px 80px;
       max-width: 480px;
       margin: auto;
     }
@@ -24,6 +30,7 @@
       display: inline-block;
       max-width: 75%;
       word-wrap: break-word;
+      position: relative;
     }
 
     .from-me {
@@ -69,19 +76,23 @@
     }
 
     .typing-indicator {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 20px;
+      background-color: #f1f0f0;
+      border-radius: 18px;
+      padding: 10px 14px;
+      display: inline-block;
       margin: 8px;
+      max-width: 75%;
+      margin-right: auto;
     }
 
     .typing-indicator span {
-      background-color: #ccc;
-      border-radius: 50%;
+      display: inline-block;
       width: 6px;
       height: 6px;
       margin: 0 2px;
+      background-color: #bbb;
+      border-radius: 50%;
+      opacity: 0.4;
       animation: blink 1.4s infinite both;
     }
 
@@ -114,6 +125,10 @@
       padding: 10px;
       background-color: #fff;
       border-top: 1px solid #ccc;
+      box-sizing: border-box;
+      margin: auto;
+      left: 0;
+      right: 0;
     }
 
     .reply-bar input {
@@ -146,7 +161,6 @@
     <div class="bubble from-them">Not exactly. It doesn't say</div>
     <div class="bubble from-me">k </div>
     <div class="status-text">Delivered</div>
-    <div class="bubble from-them typing">
       <div class="typing-indicator">
         <span></span>
         <span></span>
