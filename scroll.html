@@ -2,52 +2,54 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Trending Headlines</title>
+  <title>Today's Trending Headlines</title>
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #f7f7f7;
-      color: #222;
+      background-color: #0a0a0a;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       margin: 0;
-      padding: 40px;
+      padding: 20px;
+      color: white;
     }
 
     h1 {
+      font-size: 1.2rem;
+      color: #888;
+      margin-bottom: 20px;
       text-align: center;
-      margin-bottom: 40px;
     }
 
-    .headline-list {
-      max-width: 800px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .headline {
-      background: white;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    .notification {
+      background-color: #1c1c1e;
+      padding: 14px 20px;
+      margin-bottom: 12px;
+      border-radius: 14px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      transition: background-color 0.3s;
       cursor: pointer;
-      transition: background 0.3s;
-      text-decoration: none;
-      color: inherit;
     }
 
-    .headline:hover {
-      background: #e9f5ff;
+    .notification:hover {
+      background-color: #2a2a2e;
+    }
+
+    .headline-text {
+      font-size: 1rem;
+      line-height: 1.4;
     }
   </style>
 </head>
 <body>
-  <h1>Today's Trending Headlines</h1>
-  <div class="headline-list">
-    <div class="headline">Local Dog Wins Mayoral Race in Small Town</div>
-    <div class="headline">New Study Reveals Plants React to Compliments</div>
-    <a class="headline" href="virus-article.html">Strange Virus Identified in Isolated Forest Community</a>
-    <div class="headline">Are We Alone? Astronomers Detect Deep Space Rhythm</div>
-  </div>
+  <h1>Today’s Trending Headlines</h1>
+
+  <div class="notification"> <div class="headline-text">Local Dog Wins Mayoral Race in Small Town</div> </div>
+  <div class="notification"> <div class="headline-text">New Study Reveals Plants React to Compliments</div> </div>
+  <a href="virus-article-nyt.html" style="text-decoration:none; color:inherit;">
+    <div class="notification">
+      <div class="headline-text">Strange Virus Identified in Isolated Forest Community</div>
+    </div>
+  </a>
+  <div class="notification"> <div class="headline-text">Are We Alone? Astronomers Detect Deep Space Rhythm</div> </div>
+
 </body>
 </html>
