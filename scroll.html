@@ -10,46 +10,71 @@
       margin: 0;
       padding: 20px;
       color: white;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
     }
 
     h1 {
       font-size: 1.2rem;
-      color: #888;
-      margin-bottom: 20px;
-      text-align: center;
+      color: #bbb;
+      margin-bottom: 16px;
+      padding-left: 8px;
     }
 
     .notification {
       background-color: #1c1c1e;
-      padding: 14px 20px;
-      margin-bottom: 12px;
-      border-radius: 14px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      padding: 16px 18px;
+      border-radius: 18px;
+      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
       transition: background-color 0.3s;
-      cursor: pointer;
+      line-height: 1.5;
     }
 
     .notification:hover {
       background-color: #2a2a2e;
+      cursor: pointer;
     }
 
-    .headline-text {
+    a.notification {
+      color: inherit;
+      text-decoration: none;
+      display: block;
+    }
+
+    .title {
+      font-weight: 600;
       font-size: 1rem;
-      line-height: 1.4;
+    }
+
+    .meta {
+      font-size: 0.8rem;
+      color: #888;
+      margin-top: 4px;
     }
   </style>
 </head>
 <body>
   <h1>Today’s Trending Headlines</h1>
 
-  <div class="notification"> <div class="headline-text">Local Dog Wins Mayoral Race in Small Town</div> </div>
-  <div class="notification"> <div class="headline-text">New Study Reveals Plants React to Compliments</div> </div>
-  <a href="virus-article-nyt.html" style="text-decoration:none; color:inherit;">
-    <div class="notification">
-      <div class="headline-text">Strange Virus Identified in Isolated Forest Community</div>
-    </div>
-  </a>
-  <div class="notification"> <div class="headline-text">Are We Alone? Astronomers Detect Deep Space Rhythm</div> </div>
+  <div class="notification">
+    <div class="title">Local Dog Wins Mayoral Race in Small Town</div>
+    <div class="meta">2h ago</div>
+  </div>
 
+  <div class="notification">
+    <div class="title">New Study Reveals Plants React to Compliments</div>
+    <div class="meta">1h ago</div>
+  </div>
+
+  <a href="virus-article.html" class="notification">
+    <div class="title">Strange Virus Identified in Isolated Forest Community</div>
+    <div class="meta">1h ago</div>
+  </a>
+
+  <div class="notification">
+    <div class="title">Are We Alone? Astronomers Detect Deep Space Rhythm</div>
+    <div class="meta">30m ago</div>
+  </div>
 </body>
 </html>
