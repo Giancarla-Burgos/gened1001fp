@@ -2,61 +2,77 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Search: Mind Fog Virus</title>
+  <title>mind fog virus - Google Search</title>
   <style>
     body {
-      background-color: #f4f4f4;
       font-family: Arial, sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 40px;
+      background-color: white;
+      margin: 0;
+      padding: 0;
+      color: #202124;
     }
 
-    h1 {
-      margin-bottom: 20px;
+    .container {
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 0 20px;
     }
 
-    .terminal {
-      background: #222;
-      color: #00ff88;
-      padding: 20px;
-      border-radius: 8px;
-      width: 90%;
-      max-width: 600px;
-      font-family: monospace;
-      font-size: 1rem;
-      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    .searchbar {
+      margin-bottom: 30px;
     }
 
-    .continue {
-      margin-top: 30px;
+    input[type="text"] {
+      width: 100%;
+      padding: 14px;
+      font-size: 1.1rem;
+      border: 1px solid #dcdcdc;
+      border-radius: 24px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
 
-    .btn {
-      padding: 10px 20px;
-      background: #222;
-      color: white;
+    .result {
+      margin-bottom: 40px;
+    }
+
+    .result-title {
+      font-size: 1.25rem;
+      color: #1a0dab;
       text-decoration: none;
-      border-radius: 5px;
-      border: 1px solid #555;
     }
 
-    .btn:hover {
-      background: #111;
+    .result-url {
+      font-size: 0.9rem;
+      color: #006621;
+    }
+
+    .result-snippet {
+      font-size: 1rem;
+      color: #4d5156;
     }
   </style>
 </head>
 <body>
-  <h1>Search Results</h1>
-  <div class="terminal">
-    > Searching for: mind fog virus...<br><br>
-    > Match found: “Neuropathological Implications of Cerebrophagic Syndrome (CPS)”<br>
-    > Source: Archives of Emerging Cognitive Pathologies, Vol. 43, No. 2<br>
-    > Access granted.
-  </div>
-  <div class="continue">
-    <a class="btn" href="disease-paper.html">Read Full Research Paper</a>
+  <div class="container">
+    <div class="searchbar">
+      <input type="text" value="mind fog virus">
+    </div>
+
+    <div class="result">
+      <a href="disease-paper.html" class="result-title">Neuropathological Implications of Cerebrophagic Syndrome (CPS)</a>
+      <div class="result-url">https://aecpathologies.org/journal/cps2025</div>
+      <div class="result-snippet">
+        A new study outlines the progression and pathology of a neurodegenerative condition emerging in remote settlements. Linked to the so-called "Mind Fog Virus," the syndrome demonstrates limbic damage and identity displacement effects.
+      </div>
+    </div>
+
+    <div class="result">
+      <div class="result-title">Mysterious Virus Discovered in Remote Forest Settlement</div>
+      <div class="result-url">https://globalsciencetribune.com/articles/mindfog</div>
+      <div class="result-snippet">
+        Locals near Calveth Forest report bizarre symptoms and hallucinations. Quarantines are in place as researchers investigate the contagious “Mind Fog.” Learn more about the symptoms and possible cause.
+      </div>
+    </div>
   </div>
 </body>
 </html>
