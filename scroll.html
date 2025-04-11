@@ -2,37 +2,55 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Today's Trending Headlines</title>
+  <title>iPhone Lock Screen Notifications</title>
   <style>
     body {
-      background-color: #0a0a0a;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       margin: 0;
       padding: 20px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: url('https://images.unsplash.com/photo-1526318896980-cf78c088247c?auto=format&fit=crop&w=900&q=80') no-repeat center center fixed;
+      background-size: cover;
+      backdrop-filter: blur(6px);
       color: white;
       display: flex;
       flex-direction: column;
       gap: 12px;
+      position: relative;
+    }
+
+    .clock {
+      font-size: 3.5rem;
+      font-weight: 300;
+      text-align: center;
+      margin-bottom: 30px;
+      color: white;
+      animation: fadein 1s ease-in-out;
+    }
+
+    @keyframes fadein {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
     h1 {
-      font-size: 1.2rem;
-      color: #bbb;
-      margin-bottom: 16px;
+      font-size: 1rem;
+      color: #ccc;
+      margin-bottom: 10px;
       padding-left: 8px;
+      text-align: center;
     }
 
     .notification {
-      background-color: #1c1c1e;
+      background-color: rgba(28, 28, 30, 0.8);
       padding: 16px 18px;
       border-radius: 18px;
       box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
-      transition: background-color 0.3s;
+      transition: background-color 0.3s, transform 0.2s;
       line-height: 1.5;
     }
 
     .notification:hover {
-      background-color: #2a2a2e;
+      background-color: rgba(42, 42, 46, 0.8);
       cursor: pointer;
     }
 
@@ -49,12 +67,24 @@
 
     .meta {
       font-size: 0.8rem;
-      color: #888;
+      color: #aaa;
       margin-top: 4px;
+    }
+
+    .alert {
+      background-color: rgba(255, 77, 77, 0.95);
+      animation: pulseAlert 1s infinite alternate;
+      box-shadow: 0 0 10px rgba(255, 77, 77, 0.8);
+    }
+
+    @keyframes pulseAlert {
+      from { transform: scale(1); }
+      to { transform: scale(1.03); }
     }
   </style>
 </head>
 <body>
+  <div class="clock" id="clock">12:00</div>
   <h1>Today’s Trending Headlines</h1>
 
   <div class="notification">
@@ -67,14 +97,28 @@
     <div class="meta">1h ago</div>
   </div>
 
-  <a href="virus-article.html" class="notification">
+  <a href="virus-article-nyt.html" class="notification alert">
     <div class="title">Strange Virus Identified in Isolated Forest Community</div>
-    <div class="meta">1h ago</div>
+    <div class="meta">1h ago • Breaking</div>
   </a>
 
   <div class="notification">
     <div class="title">Are We Alone? Astronomers Detect Deep Space Rhythm</div>
     <div class="meta">30m ago</div>
   </div>
+
+  <script>
+    function updateClock() {
+      const clock = document.getElementById('clock');
+      const now = new Date();
+      let hours = now.getHours();
+      let minutes = now.getMinutes();
+      if (hours < 10) hours = '0' + hours;
+      if (minutes < 10) minutes = '0' + minutes;
+      clock.textContent = `${hours}:${minutes}`;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
 </body>
 </html>
