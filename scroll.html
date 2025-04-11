@@ -67,28 +67,40 @@
       margin-top: 4px;
     }
 
-    .unlock-wrapper {
-      text-align: center;
-      margin-top: auto;
-    }
-
-    .unlock-btn {
-      margin-top: 20px;
-      padding: 12px 40px;
+    .slider-container {
+      position: relative;
+      width: 300px;
+      height: 50px;
       background: rgba(255, 255, 255, 0.1);
-      color: #fff;
-      border: 1px solid #888;
       border-radius: 30px;
-      font-size: 0.95rem;
-      cursor: pointer;
-      text-shadow: 0 0 4px #000;
-      backdrop-filter: blur(6px);
-      transition: background 0.3s, transform 0.2s;
+      margin: 40px auto 0 auto;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
     }
 
-    .unlock-btn:hover {
-      background: rgba(255, 255, 255, 0.25);
-      transform: scale(1.05);
+    .slider-handle {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background: rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(6px);
+      border-radius: 50%;
+      top: 0;
+      left: 0;
+      cursor: grab;
+      transition: background 0.3s;
+    }
+
+    .slider-text {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      line-height: 50px;
+      color: #ccc;
+      font-size: 0.9rem;
+      font-style: italic;
+      pointer-events: none;
     }
   </style>
 </head>
@@ -121,8 +133,9 @@
     <div class="meta">25m ago</div>
   </div>
 
-  <div class="unlock-wrapper">
-    <button class="unlock-btn" onclick="unlock()">⬅︎ Slide to Unlock</button>
+  <div class="slider-container" id="slider">
+    <div class="slider-handle" id="handle"></div>
+    <div class="slider-text">⬅︎ Slide to Unlock</div>
   </div>
 
   <audio id="unlock-sound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_d5192c02d7.mp3?filename=unlock-phone-109304.mp3"></audio>
@@ -140,12 +153,39 @@
     setInterval(updateClock, 1000);
     updateClock();
 
+    const handle = document.getElementById("handle");
+    const slider = document.getElementById("slider");
+    let isDragging = false;
+
+    handle.addEventListener("mousedown", (e) => {
+      isDragging = true;
+    });
+
+    document.addEventListener("mouseup", () => {
+      if (isDragging) {
+        if (parseInt(handle.style.left) >= 240) {
+          unlock();
+        } else {
+          handle.style.left = "0px";
+        }
+        isDragging = false;
+      }
+    });
+
+    document.addEventListener("mousemove", (e) => {
+      if (!isDragging) return;
+      let rect = slider.getBoundingClientRect();
+      let x = e.clientX - rect.left - handle.offsetWidth / 2;
+      x = Math.max(0, Math.min(x, slider.offsetWidth - handle.offsetWidth));
+      handle.style.left = `${x}px`;
+    });
+
     function unlock() {
       const sound = document.getElementById("unlock-sound");
       if (navigator.vibrate) navigator.vibrate(100);
       sound.play();
       setTimeout(() => {
-        window.location.href = "virus-article.html";
+        window.location.href = "texting.html";
       }, 700);
     }
 
