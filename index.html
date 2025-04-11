@@ -4,79 +4,85 @@
   <meta charset="UTF-8">
   <title>Today is a Great Day</title>
   <style>
-    :root {
-      --soft-pink: #ffe4ec;
-      --sunny-yellow: #fff9c4;
-      --leaf-green: #d0f0c0;
-      --warm-orange: #ffb347;
-      --hover-orange: #ffa500;
-    }
-
     body {
       margin: 0;
       padding: 0;
       height: 100vh;
-      background: linear-gradient(135deg, var(--soft-pink), var(--leaf-green));
-      color: #333;
-      font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+      background: linear-gradient(to top, #d9f9ff 10%, #fff 80%);
+      font-family: 'Segoe UI', sans-serif;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
       overflow: hidden;
-      padding: 2rem;
-      box-sizing: border-box;
+      position: relative;
+      color: #333;
     }
 
     h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
+      font-size: 2.8rem;
       color: #ff69b4;
+      margin-bottom: 10px;
     }
 
     p {
-      font-size: 1.5rem;
-      max-width: 600px;
-      margin-bottom: 2rem;
-      color: #444;
+      font-size: 1.4rem;
+      margin-bottom: 30px;
     }
 
     .btn {
-      background-color: var(--warm-orange);
+      background-color: #ffb347;
       color: white;
-      padding: 14px 32px;
+      padding: 14px 28px;
       border: none;
-      border-radius: 10px;
+      border-radius: 8px;
       font-size: 1.2rem;
       cursor: pointer;
       text-decoration: none;
-      box-shadow: 0 4px 15px rgba(255, 179, 71, 0.4);
+      box-shadow: 0 0 10px rgba(255, 179, 71, 0.5);
       transition: all 0.3s ease;
     }
 
     .btn:hover {
-      background-color: var(--hover-orange);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(255, 165, 0, 0.6);
+      background-color: #ffa500;
+      transform: scale(1.05);
+    }
+
+    .scene {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 250px;
+      background: url('https://i.imgur.com/SGBasBl.png') repeat-x bottom / contain;
     }
 
     .sun {
       position: absolute;
-      top: 40px;
-      right: 60px;
+      top: 60px;
+      left: 60px;
       width: 100px;
       height: 100px;
-      background: radial-gradient(circle, var(--sunny-yellow), #ffeb3b);
+      background: radial-gradient(circle, #fffdd0, #ffdf00);
       border-radius: 50%;
       box-shadow: 0 0 30px #fff59d;
+    }
+
+    .birds {
+      position: absolute;
+      top: 40px;
+      right: 60px;
+      font-size: 2rem;
+      color: #333;
     }
   </style>
 </head>
 <body>
   <div class="sun"></div>
+  <div class="birds">🐦 🐦 🐦</div>
   <h1>Today is a great day!</h1>
-  <p>The sun is shining and the birds are chirping. In that moment, life feels stress-free :)</p>
+  <p>The sun is shining and the birds are chirping. In this moment, life feels stress-free :)</p>
   <a class="btn" href="scroll.html">Mindlessly scroll on your phone</a>
+  <div class="scene"></div>
 </body>
 </html>
