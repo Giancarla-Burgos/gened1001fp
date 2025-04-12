@@ -158,27 +158,57 @@
     font-size: 0.9rem;
     cursor: pointer;
   }
-  
+    
   .keyboard {
-    background-color: #c6c6c8;
-    height: 160px;
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    gap: 4px;
-    padding: 12px;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 480px;
+    background-color: #d1d1d6;
+    padding: 10px 6px 20px;
     box-sizing: border-box;
+    z-index: 999;
+  }
+  
+  .keyboard-row {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: 8px;
   }
   
   .key {
     background: #fff;
-    border-radius: 6px;
-    height: 32px;
-    line-height: 32px;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 1rem;
+    color: #000;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.15);
     text-align: center;
-    font-size: 0.9rem;
-    color: #333;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    min-width: 30px;
+    cursor: default;
+    user-select: none;
   }
+  
+  .key.wide {
+    min-width: 50px;
+    text-transform: capitalize;
+  }
+  
+  .key.space {
+    flex: 1;
+    padding: 8px 0;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 12px;
+  }
+  
+  .key.dark {
+    background-color: #eee;
+  }
+
 
 
   </style>
@@ -209,12 +239,30 @@
     <div class="reply-bar">
       <input type="text" placeholder="iMessage" />
       <button>Send</button>
-  </div>
+    </div>
     <div class="keyboard">
-      <div class="key">Q</div><div class="key">W</div><div class="key">E</div><div class="key">R</div><div class="key">T</div><div class="key">Y</div><div class="key">U</div><div class="key">I</div><div class="key">O</div><div class="key">P</div>
-      <div class="key">A</div><div class="key">S</div><div class="key">D</div><div class="key">F</div><div class="key">G</div><div class="key">H</div><div class="key">J</div><div class="key">K</div><div class="key">L</div>
-      <div class="key">Z</div><div class="key">X</div><div class="key">C</div><div class="key">V</div><div class="key">B</div><div class="key">N</div><div class="key">M</div>
+      <div class="keyboard-row">
+        <div class="key">q</div><div class="key">w</div><div class="key">e</div><div class="key">r</div><div class="key">t</div>
+        <div class="key">y</div><div class="key">u</div><div class="key">i</div><div class="key">o</div><div class="key">p</div>
+      </div>
+      <div class="keyboard-row">
+        <div class="key">a</div><div class="key">s</div><div class="key">d</div><div class="key">f</div><div class="key">g</div>
+        <div class="key">h</div><div class="key">j</div><div class="key">k</div><div class="key">l</div>
+      </div>
+      <div class="keyboard-row">
+        <div class="key dark wide">⬆︎</div>
+        <div class="key">z</div><div class="key">x</div><div class="key">c</div><div class="key">v</div>
+        <div class="key">b</div><div class="key">n</div><div class="key">m</div>
+        <div class="key dark wide">⌫</div>
+      </div>
+      <div class="keyboard-row">
+        <div class="key dark wide">123</div>
+        <div class="key dark wide">🌐</div>
+        <div class="key dark wide">🎙</div>
+        <div class="key space">space</div>
+        <div class="key dark wide">return</div>
     </div>
   </div>
+ </div>
 </body>
 </html>
