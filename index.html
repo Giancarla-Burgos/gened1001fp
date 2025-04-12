@@ -70,51 +70,52 @@
       box-shadow: 0 0 30px #fff59d;
     }
 
-    .flower {
-      position: absolute;
-      bottom: 40px;
-      width: 40px;
-      height: 40px;
-      background: radial-gradient(circle, pink 40%, white);
-      border-radius: 50%;
-      animation: sway 3s ease-in-out infinite;
-    }
+  .flower {
+    position: absolute;
+    bottom: 40px;
+    width: 0;
+    height: 0;
+    animation: sway 3s ease-in-out infinite;
+  }
+  
+  .flower .stem {
+    position: absolute;
+    width: 4px;
+    height: 40px;
+    background: green;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+  }
+  
+  .flower .center {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    background: yellow;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+  }
+  
+  .flower .petal {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: pink;
+    border-radius: 50%;
+    z-index: 1;
+  }
+  
+  .flower .petal:nth-child(3) { bottom: 52px; left: calc(50% - 16px); }  /* Left */
+  .flower .petal:nth-child(4) { bottom: 52px; left: calc(50% + 4px); }   /* Right */
+  .flower .petal:nth-child(5) { bottom: 64px; left: calc(50% - 6px); }   /* Top */
+  .flower .petal:nth-child(6) { bottom: 40px; left: calc(50% - 18px); }  /* Bottom left */
+  .flower .petal:nth-child(7) { bottom: 40px; left: calc(50% + 6px); }   /* Bottom right */
 
-   
-    .flower::before,
-    .flower::after {
-      content: '';
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      background: pink;
-      border-radius: 50%;
-      top: -15px;
-    }
-
-    .flower::before {
-      left: -10px;
-    }
-
-    .flower::after {
-      right: -10px;
-    }
-
-    .flower .center {
-      position: absolute;
-      top: -10px;
-      left: -6px;
-      width: 20px;
-      height: 20px;
-      background: yellow;
-      border-radius: 50%;
-    }
-
-    .flower:nth-child(1) { left: 20%; animation-delay: 0s; }
-    .flower:nth-child(2) { left: 40%; animation-delay: 0.8s; }
-    .flower:nth-child(3) { left: 60%; animation-delay: 0.4s; }
-    .flower:nth-child(4) { left: 80%; animation-delay: 1.2s; }
-    
     @keyframes sway {
       0% { transform: translateY(0px) rotate(0deg); }
       50% { transform: translateY(-5px) rotate(3deg); }
@@ -128,10 +129,44 @@
   <p>The sun is shining and the birds are chirping. Nothing is due :)</p>
   <a class="btn" href="scroll.html">Mindlessly scroll on phone</a>
   <div class="scene">
-    <div class="flower"></div>
-    <div class="flower"></div>
-    <div class="flower"></div>
-    <div class="flower"></div>
+    <div class="flower" style="left: 20%;">
+      <div class="stem"></div>
+      <div class="center"></div>
+      <div class="petal"></div>
+      <div class="petal"></div>
+      <div class="petal"></div>
+      <div class="petal"></div>
+      <div class="petal"></div>
+    </div>
+    <div class="flower" style="left: 40%;">
+      <div class="stem"></div>
+      <div class="center"></div>
+      <div class="petal"></div>
+      <div class="petal"></div>
+      <div class="petal"></div>
+      <div class="petal"></div>
+      <div class="petal"></div>
+    </div>
+    <div class="flower" style="left: 60%;">
+      <div class="stem"></div>
+      <div class="center"></div>
+      <div class="petal"></div>
+      <div class="petal"></div>
+      <div class="petal"></div>
+      <div class="petal"></div>
+      <div class="petal"></div>
+    </div>
+    <div class="flower" style="left: 80%;">
+      <div class="stem"></div>
+      <div class="center"></div>
+      <div class="petal"></div>
+      <div class="petal"></div>
+      <div class="petal"></div>
+      <div class="petal"></div>
+      <div class="petal"></div>
+    </div>
+  </div>
+
   </div>
 </body>
 </html>
