@@ -135,10 +135,8 @@
 
   <div class="slider-container" id="slider">
     <div class="slider-handle" id="handle"></div>
-    <div class="slider-text">⬅︎ Slide to Unlock</div>
+    <div class="slider-text"> Slide to Unlock → </div>
   </div>
-
-  <audio id="unlock-sound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_d5192c02d7.mp3?filename=unlock-phone-109304.mp3"></audio>
 
   <script>
     function updateClock() {
@@ -183,7 +181,6 @@
     function unlock() {
       const sound = document.getElementById("unlock-sound");
       if (navigator.vibrate) navigator.vibrate(100);
-      sound.play();
       setTimeout(() => {
         window.location.href = "texting.html";
       }, 700);
