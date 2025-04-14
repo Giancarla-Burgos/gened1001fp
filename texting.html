@@ -25,17 +25,19 @@
 
     .bubble {
       padding: 10px 14px;
-      margin: 8px;
-      border-radius: 18px;
+      margin: 8px 0;
+      border-radius: 20px;
       display: inline-block;
       max-width: 75%;
       word-wrap: break-word;
       position: relative;
+      clear: both;
     }
 
     .from-me {
       background: #007aff;
       color: white;
+      float: right;
       border-bottom-right-radius: 4px;
       margin-left: auto;
       text-align: left;
@@ -44,6 +46,7 @@
     .from-them {
       background: #f1f0f0;
       color: black;
+      float: left;
       border-bottom-left-radius: 4px;
       margin-right: auto;
       text-align: left;
@@ -54,13 +57,14 @@
       color: #004080;
       text-decoration: underline;
       display: inline-block;
-      margin-left: auto;
-      border-radius: 18px;
+      float: right;
+      border-radius: 20px;
       padding: 10px 14px;
       font-size: 0.95rem;
       max-width: 75%;
       box-shadow: 0 0 4px rgba(0, 122, 255, 0.4);
       font-weight: 600;
+      margin: 8px 0;
     }
 
     .timestamp {
@@ -82,9 +86,9 @@
       border-radius: 18px;
       padding: 10px 14px;
       display: inline-block;
-      margin: 8px;
+      margin: 8px 0;
       max-width: 75%;
-      margin-right: auto;
+      float: left;
     }
 
     .typing-indicator span {
@@ -172,23 +176,24 @@
     .key {
       background: #fff;
       border-radius: 8px;
-      padding: 10px 14px;
+      width: 36px;
+      height: 44px;
       font-size: 1rem;
       color: #000;
       box-shadow: 0 1px 2px rgba(0,0,0,0.15);
       text-align: center;
-      min-width: 32px;
+      line-height: 44px;
       user-select: none;
     }
 
     .key.wide {
       min-width: 48px;
-      text-transform: capitalize;
     }
 
     .key.space {
       flex: 1;
-      padding: 10px 0;
+      height: 44px;
+      line-height: 44px;
       text-align: center;
       font-weight: bold;
       border-radius: 12px;
@@ -220,6 +225,7 @@
       <span></span>
     </div>
   </div>
+
   <div class="input-area">
     <div class="reply-bar">
       <input type="text" placeholder="iMessage" />
