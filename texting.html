@@ -50,15 +50,17 @@
     }
 
     .link-bubble {
-      background: #f1f0f0;
-      color: black;
-      text-decoration: none;
+      background: #d6ebff;
+      color: #004080;
+      text-decoration: underline;
       display: inline-block;
       margin-left: auto;
       border-radius: 18px;
       padding: 10px 14px;
       font-size: 0.95rem;
       max-width: 75%;
+      box-shadow: 0 0 4px rgba(0, 122, 255, 0.4);
+      font-weight: 600;
     }
 
     .timestamp {
@@ -105,134 +107,117 @@
     }
 
     @keyframes blink {
-      0% {
-        opacity: 0.2;
-      }
-      20% {
-        opacity: 1;
-      }
-      100% {
-        opacity: 0.2;
-      }
+      0% { opacity: 0.2; }
+      20% { opacity: 1; }
+      100% { opacity: 0.2; }
     }
-  
-  .input-area {
-    position: fixed;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    max-width: 480px;
-    background-color: #d1d1d6;
-    box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.1);
-    z-index: 999;
-  }
-  
-  .reply-bar {
-    display: flex;
-    align-items: flex-end;
-    padding: 10px 12px;
-    background-color: #d1d1d6;
-    border-top: 1px solid #ccc;
-  }
-  
-  .reply-bar input {
-    flex: 1;
-    padding: 10px 14px;
-    font-size: 1rem;
-    border: none;
-    border-radius: 20px;
-    background-color: #fff;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.15) inset;
-    outline: none;
-    margin-right: 10px;
-  }
-  
-  .reply-bar button {
-    padding: 10px 16px;
-    background-color: #007aff;
-    color: #fff;
-    font-weight: 500;
-    border: none;
-    border-radius: 18px;
-    font-size: 0.9rem;
-    cursor: pointer;
-  }
-    
-  .keyboard {
-    position: fixed;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    max-width: 480px;
-    background-color: #d1d1d6;
-    padding: 10px 6px 20px;
-    box-sizing: border-box;
-    z-index: 999;
-  }
-  
-  .keyboard-row {
-    display: flex;
-    justify-content: center;
-    gap: 6px;
-    margin-bottom: 8px;
-  }
-  
-  .key {
-    background: #fff;
-    border-radius: 8px;
-    padding: 8px 12px;
-    font-size: 1rem;
-    color: #000;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.15);
-    text-align: center;
-    min-width: 30px;
-    cursor: default;
-    user-select: none;
-  }
-  
-  .key.wide {
-    min-width: 50px;
-    text-transform: capitalize;
-  }
-  
-  .key.space {
-    flex: 1;
-    padding: 8px 0;
-    text-align: center;
-    font-weight: bold;
-    border-radius: 12px;
-  }
-  
-  .key.dark {
-    background-color: #eee;
-  }
 
+    .input-area {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 480px;
+      background-color: #d1d1d6;
+      box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.1);
+      z-index: 999;
+    }
 
+    .reply-bar {
+      display: flex;
+      align-items: flex-end;
+      padding: 10px 12px;
+      background-color: #d1d1d6;
+      border-top: 1px solid #ccc;
+    }
 
+    .reply-bar input {
+      flex: 1;
+      padding: 10px 14px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 20px;
+      background-color: #fff;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.15) inset;
+      outline: none;
+      margin-right: 10px;
+    }
+
+    .reply-bar button {
+      padding: 10px 16px;
+      background-color: #007aff;
+      color: #fff;
+      font-weight: 500;
+      border: none;
+      border-radius: 18px;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+
+    .keyboard {
+      background-color: #d1d1d6;
+      padding: 8px 6px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .keyboard-row {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .key {
+      background: #fff;
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 1rem;
+      color: #000;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+      text-align: center;
+      min-width: 32px;
+      user-select: none;
+    }
+
+    .key.wide {
+      min-width: 48px;
+      text-transform: capitalize;
+    }
+
+    .key.space {
+      flex: 1;
+      padding: 10px 0;
+      text-align: center;
+      font-weight: bold;
+      border-radius: 12px;
+    }
+
+    .key.dark {
+      background-color: #eee;
+    }
   </style>
 </head>
 <body>
   <div class="conversation">
-    <div class="timestamp">Today 9:41 AM</div>
+    <div class="timestamp" id="timestamp">Today</div>
 
-    <div class="bubble from-them">Have you heard about this? </div>
+    <div class="bubble from-them">Have you heard about this?</div>
     <a href="virus-article.html" class="link-bubble">
       <strong>“Novel Virus Discovered in Springfield”</strong>
     </a>
     <div class="bubble from-me">yh i saw it earlier. it looks like fear mongering lol</div>
     <div class="bubble from-them">No, it’s real. It's called “mind fog”. I'm a little worried</div>
-    <div class="bubble from-me">damn </div>
-    <div class="bubble from-me">dyk know how it's spreading? </div>
+    <div class="bubble from-me">damn</div>
+    <div class="bubble from-me">dyk know how it's spreading?</div>
     <div class="bubble from-them">Not exactly. It doesn't say</div>
-    <div class="bubble from-me">k </div>
+    <div class="bubble from-me">k</div>
     <div class="status-text">Delivered</div>
-      <div class="typing-indicator">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+    <div class="typing-indicator">
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
   </div>
   <div class="input-area">
@@ -261,8 +246,24 @@
         <div class="key dark wide">🎙</div>
         <div class="key space">space</div>
         <div class="key dark wide">return</div>
+      </div>
     </div>
   </div>
- </div>
+
+  <script>
+    function updateTimestamp() {
+      const now = new Date();
+      let hours = now.getHours();
+      let minutes = now.getMinutes();
+      const ampm = hours >= 12 ? 'PM' : 'AM';
+      hours = hours % 12 || 12;
+      minutes = minutes < 10 ? '0' + minutes : minutes;
+      const formattedTime = `${hours}:${minutes} ${ampm}`;
+      document.getElementById("timestamp").textContent = `Today ${formattedTime}`;
+    }
+
+    updateTimestamp();
+    setInterval(updateTimestamp, 60000);
+  </script>
 </body>
 </html>
