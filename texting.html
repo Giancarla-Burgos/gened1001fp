@@ -4,37 +4,34 @@
   <meta charset="UTF-8">
   <title>Messages - Fam</title>
   <style>
-    body {
+    html, body {
       margin: 0;
       padding: 0;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       background: #e5e5ea;
       color: #000;
-      display: flex;
-      flex-direction: column;
       height: 100vh;
       overflow: hidden;
     }
 
     .conversation {
-      flex: 1;
-      overflow-y: auto;
-      padding: 20px 16px 320px;
+      height: calc(100vh - 330px);
+      padding: 10px 16px;
       max-width: 480px;
       margin: auto;
-      position: relative;
-      max-height: calc(100vh - 320px);
+      box-sizing: border-box;
     }
 
     .bubble {
-      padding: 10px 14px;
-      margin: 8px 0;
-      border-radius: 20px;
+      padding: 8px 12px;
+      margin: 6px 0;
+      border-radius: 18px;
       display: inline-block;
       max-width: 75%;
       word-wrap: break-word;
       position: relative;
       clear: both;
+      font-size: 0.95rem;
     }
 
     .from-me {
@@ -42,7 +39,6 @@
       color: white;
       float: right;
       border-bottom-right-radius: 4px;
-      text-align: left;
     }
 
     .from-them {
@@ -50,7 +46,6 @@
       color: black;
       float: left;
       border-bottom-left-radius: 4px;
-      text-align: left;
     }
 
     .bubble a {
@@ -64,14 +59,14 @@
 
     .timestamp {
       text-align: center;
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       color: #888;
-      margin-top: 16px;
+      margin: 6px 0;
     }
 
     .status-text {
       text-align: right;
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       color: #888;
       margin-right: 10px;
     }
@@ -79,9 +74,9 @@
     .typing-indicator {
       background-color: #f1f0f0;
       border-radius: 18px;
-      padding: 10px 14px;
+      padding: 8px 10px;
       display: inline-block;
-      margin: 8px 0;
+      margin: 6px 0;
       max-width: 75%;
       float: left;
     }
@@ -126,7 +121,7 @@
     .reply-bar {
       display: flex;
       align-items: flex-end;
-      padding: 10px 12px;
+      padding: 10px 16px;
       background-color: #d1d1d6;
       border-top: 1px solid #ccc;
     }
@@ -156,10 +151,11 @@
 
     .keyboard {
       background-color: #d1d1d6;
-      padding: 8px 6px 16px;
+      padding: 6px 16px 10px;
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 6px;
+      box-sizing: border-box;
     }
 
     .keyboard-row {
@@ -171,13 +167,13 @@
     .key {
       background: #fff;
       border-radius: 8px;
-      width: 38px;
-      height: 46px;
-      font-size: 1rem;
+      width: 34px;
+      height: 42px;
+      font-size: 0.95rem;
       color: #000;
       box-shadow: 0 1px 2px rgba(0,0,0,0.15);
       text-align: center;
-      line-height: 46px;
+      line-height: 42px;
       user-select: none;
     }
 
@@ -187,8 +183,8 @@
 
     .key.space {
       flex: 1;
-      height: 46px;
-      line-height: 46px;
+      height: 42px;
+      line-height: 42px;
       text-align: center;
       font-weight: bold;
       border-radius: 12px;
@@ -202,7 +198,6 @@
 <body>
   <div class="conversation">
     <div class="timestamp" id="timestamp">Today</div>
-
     <div class="bubble from-them">Have you heard about this?</div>
     <div class="bubble from-them">
       <a href="virus-article.html">
@@ -217,12 +212,9 @@
     <div class="bubble from-me">k</div>
     <div class="status-text">Delivered</div>
     <div class="typing-indicator">
-      <span></span>
-      <span></span>
-      <span></span>
+      <span></span><span></span><span></span>
     </div>
   </div>
-
   <div class="input-area">
     <div class="reply-bar">
       <input type="text" placeholder="iMessage" />
@@ -252,7 +244,6 @@
       </div>
     </div>
   </div>
-
   <script>
     function updateTimestamp() {
       const now = new Date();
@@ -264,14 +255,8 @@
       const formattedTime = `${hours}:${minutes} ${ampm}`;
       document.getElementById("timestamp").textContent = `Today ${formattedTime}`;
     }
-
     updateTimestamp();
     setInterval(updateTimestamp, 60000);
-
-    window.addEventListener('load', () => {
-      const conversation = document.querySelector('.conversation');
-      conversation.scrollTop = conversation.scrollHeight;
-    });
   </script>
 </body>
 </html>
