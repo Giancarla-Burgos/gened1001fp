@@ -13,14 +13,16 @@
       display: flex;
       flex-direction: column;
       height: 100vh;
+      overflow: hidden;
     }
 
     .conversation {
       flex: 1;
       overflow-y: auto;
-      padding: 20px 16px 320px;
+      padding: 20px 16px 16px;
       max-width: 480px;
       margin: auto;
+      position: relative;
     }
 
     .bubble {
@@ -50,19 +52,13 @@
       text-align: left;
     }
 
-    .link-bubble {
-      background: #f1f0f0;
+    .bubble a {
       color: #004080;
       text-decoration: underline;
-      display: inline-block;
-      border-radius: 20px;
-      padding: 10px 14px;
-      font-size: 0.95rem;
-      max-width: 75%;
-      box-shadow: 0 0 4px rgba(0, 122, 255, 0.15);
-      font-weight: 600;
-      float: left;
-      margin-right: auto;
+      font-weight: bold;
+      box-shadow: 0 0 6px rgba(0, 122, 255, 0.4);
+      padding: 2px 4px;
+      border-radius: 4px;
     }
 
     .timestamp {
@@ -207,9 +203,11 @@
     <div class="timestamp" id="timestamp">Today</div>
 
     <div class="bubble from-them">Have you heard about this?</div>
-    <a href="virus-article.html" class="bubble from-them link-bubble">
-      <strong>“Novel Virus Discovered in Springfield”</strong>
-    </a>
+    <div class="bubble from-them">
+      <a href="virus-article.html">
+        <strong>“Novel Virus Discovered in Springfield”</strong>
+      </a>
+    </div>
     <div class="bubble from-me">yh i saw it earlier. it looks like fear mongering lol</div>
     <div class="bubble from-them">No, it’s real. It's called “mind fog”. I'm a little worried</div>
     <div class="bubble from-me">damn</div>
