@@ -170,22 +170,23 @@
     handle.addEventListener("mousedown", (e) => isDragging = true);
     document.addEventListener("mouseup", () => {
       if (!isDragging) return;
-      if (parseInt(handle.style.left) >= 200) unlock();
+      let currentLeft = handle.getBoundingClientRect().left - slider.getBoundingClientRect().left;
+      if (currentLeft >= slider.offsetWidth - handle.offsetWidth - 10)
       else handle.style.left = "0px";
       isDragging = false;
     });
     document.addEventListener("mousemove", (e) => {
       if (!isDragging) return;
-      moveHandle(e.clientX);
+      moveHandle(e.clientX); 
     });
 
     // Mobile
     handle.addEventListener("touchstart", () => isDragging = true);
     document.addEventListener("touchend", () => {
       if (!isDragging) return;
-      if (parseInt(handle.style.left) >= 200) unlock();
-      else handle.style.left = "0px";
-      isDragging = false;
+
+      let currentLeft = handle.getBounding
+
     });
     document.addEventListener("touchmove", (e) => {
       if (!isDragging) return;
