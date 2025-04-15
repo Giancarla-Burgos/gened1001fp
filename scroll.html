@@ -12,11 +12,12 @@
       background: radial-gradient(ellipse at center, #0b0f2b 0%, #000000 100%);
       color: white;
       height: 100vh;
+      overflow-y: auto; /* ✅ allows vertical scroll */
+      -webkit-overflow-scrolling: touch; /* ✅ smoother scroll on iOS */
       display: flex;
       flex-direction: column;
       gap: 12px;
       position: relative;
-      overflow: hidden;
     }
 
     canvas#stars {
