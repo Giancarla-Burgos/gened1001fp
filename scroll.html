@@ -12,8 +12,8 @@
       background: radial-gradient(ellipse at center, #0b0f2b 0%, #000000 100%);
       color: white;
       height: 100vh;
-      overflow-y: auto; /* ✅ allows vertical scroll */
-      -webkit-overflow-scrolling: touch; /* ✅ smoother scroll on iOS */
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
       display: flex;
       flex-direction: column;
       gap: 12px;
@@ -92,7 +92,7 @@
       top: 0;
       left: 0;
       cursor: grab;
-      transition: background 0.3s;
+      transition: left 0.2s ease;
     }
 
     .slider-text {
@@ -158,7 +158,6 @@
       if (minutes < 10) minutes = '0' + minutes;
       clock.textContent = `${hours}:${minutes}`;
     }
-
     setInterval(updateClock, 1000);
     updateClock();
 
@@ -166,32 +165,12 @@
     const slider = document.getElementById("slider");
     let isDragging = false;
 
-    // Desktop
-    handle.addEventListener("mousedown", (e) => isDragging = true);
-    document.addEventListener("mouseup", () => {
-      if (!isDragging) return;
-      let currentLeft = handle.getBoundingClientRect().left - slider.getBoundingClientRect().left;
-      if (currentLeft >= slider.offsetWidth - handle.offsetWidth - 10)
-      else handle.style.left = "0px";
-      isDragging = false;
-    });
-    document.addEventListener("mousemove", (e) => {
-      if (!isDragging) return;
-      moveHandle(e.clientX); 
-    });
-
-    // Mobile
-    handle.addEventListener("touchstart", () => isDragging = true);
-    document.addEventListener("touchend", () => {
-      if (!isDragging) return;
-
-      let currentLeft = handle.getBounding
-
-    });
-    document.addEventListener("touchmove", (e) => {
-      if (!isDragging) return;
-      moveHandle(e.touches[0].clientX);
-    });
+    function unlock() {
+      if (navigator.vibrate) navigator.vibrate(100);
+      setTimeout(() => {
+        window.location.href = "texting.html";
+      }, 500);
+    }
 
     function moveHandle(xPosition) {
       let rect = slider.getBoundingClientRect();
@@ -200,12 +179,47 @@
       handle.style.left = `${x}px`;
     }
 
-    function unlock() {
-      if (navigator.vibrate) navigator.vibrate(100);
-      setTimeout(() => {
-        window.location.href = "texting.html";
-      }, 500);
+    function handleRelease() {
+      let rect = slider.getBoundingClientRect();
+      let left = handle.getBoundingClientRect().left - rect.left;
+      if (left >= slider.offsetWidth - handle.offsetWidth - 10) {
+        unlock();
+      } else {
+        handle.style.left = '0px';
+      }
+      isDragging = false;
     }
+
+    // Mouse support
+    handle.addEventListener("mousedown", (e) => {
+      e.preventDefault();
+      isDragging = true;
+      handle.style.transition = 'none';
+    });
+
+    document.addEventListener("mousemove", (e) => {
+      if (!isDragging) return;
+      moveHandle(e.clientX);
+    });
+
+    document.addEventListener("mouseup", (e) => {
+      if (isDragging) handleRelease();
+    });
+
+    // Touch support
+    handle.addEventListener("touchstart", (e) => {
+      isDragging = true;
+      handle.style.transition = 'none';
+    });
+
+    document.addEventListener("touchmove", (e) => {
+      if (!isDragging) return;
+      moveHandle(e.touches[0].clientX);
+    });
+
+    document.addEventListener("touchend", () => {
+      if (isDragging) handleRelease();
+    });
 
     // Stars
     const canvas = document.getElementById("stars");
