@@ -1,1 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Messages - Fam</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #e5e5ea;
+      color: #000;
+      height: 100vh;
+      overflow: hidden;
+    }
 
+    .conversation {
+      height: calc(100vh - 330px);
+      padding: 10px 16px;
+      max-width: 480px;
+      margin: auto;
+      box-sizing: border-box;
+    }
+
+    .bubble {
+      padding: 8px 12px;
+      margin: 6px 0;
+      border-radius: 18px;
+      display: inline-block;
+      max-width: 75%;
+      word-wrap: break-word;
+      position: relative;
+      clear: both;
+      font-size: 0.95rem;
+    }
+
+    .from-me {
+      background: #007aff;
+      color: white;
+      float: right;
+      border-bottom-right-radius: 4px;
+    }
+
+    .from-them {
+      background: #f1f0f0;
+      color: black;
+      float: left;
+      border-bottom-left-radius: 4px;
+    }
+
+    .bubble a {
+      color: #004080;
+      text-decoration: underline;
+      font-weight: bold;
+      box-shadow: 0 0 6px rgba(0, 122, 255, 0.4);
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+
+    .timestamp {
+      text-align: center;
+      font-size: 0.7rem;
+      color: #888;
+      margin: 6px 0;
+    }
+
+    .status-text {
+      text-align: right;
+      font-size: 0.7rem;
+      color: #888;
+      margin-right: 10px;
+    }
+
+    .typing-indicator {
+      background-color: #f1f0f0;
+      border-radius: 18px;
+      padding: 8px 10px;
+      display: inline-block;
+      margin: 6px 0;
+      max-width: 75%;
+      float: left;
+    }
+
+    .typing-indicator span {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      margin: 0 2px;
+      background-color: #bbb;
+      border-radius: 50%;
+      opacity: 0.4;
+      animation: blink 1.4s infinite both;
+    }
+
+    .typing-indicator span:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .typing-indicator span:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    @keyframes blink {
+      0% { opacity: 0.2; }
+      20% { opacity: 1; }
+      100% { opacity: 0.2; }
+    }
+
+    .input-area {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 480px;
+      background-color: #d1d1d6;
+      box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.1);
+      z-index: 999;
+    }
+
+    .reply-bar {
+      display: flex;
+      align-items: flex-end;
+      padding: 10px 16px;
+      background-color: #d1d1d6;
+      border-top: 1px solid #ccc;
+    }
+
+    .reply-bar input {
+      flex: 1;
+      padding: 10px 14px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 20px;
+      background-color: #fff;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.15) inset;
+      outline: none;
+      margin-right: 10px;
+    }
+
+    .reply-bar button {
+      padding: 10px 16px;
+      background-color: #007aff;
+      color: #fff;
+      font-weight: 500;
+      border: none;
+      border-radius: 18px;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+
+    .keyboard {
+      background-color: #d1d1d6;
+      padding: 6px 16px 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      box-sizing: border-box;
+    }
+
+    .keyboard-row {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .key {
+      background: #fff;
+      border-radius: 8px;
+      width: 34px;
+      height: 42px;
+      font-size: 0.95rem;
+      color: #000;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+      text-align: center;
+      line-height: 42px;
+      user-select: none;
+    }
+
+    .key.wide {
+      min-width: 48px;
+    }
+
+    .key.space {
+      flex: 1;
+      height: 42px;
+      line-height: 42px;
+      text-align: center;
+      font-weight: bold;
+      border-radius: 12px;
+    }
+
+    .key.dark {
+      background-color: #eee;
+    }
+  </style>
+</head>
+<body>
+  <div class="conversation">
+    <div class="bubble from-me">yh i saw it earlier. it looks like fear mongering lol</div>
+    <div class="bubble from-them">No, it’s real. It's called “zombie virus”. I'm a little worried</div>
+    <div class="bubble from-me">damn</div>
+    <div class="bubble from-me">dyk know how it's spreading?</div>
+    <div class="bubble from-them">Not exactly. It doesn't say</div>
+    <div class="bubble from-me">k</div>
+    <div class="bubble from-me">just rd the thing</div>
+    <div class="bubble from-me">doesnt seem alarming</div>
+    <div class="bubble from-me">u do know how viruses come n go rt?</div>
+    <div class="status-text">Delivered</div>
+    </div>
+  </div>
+  <div class="input-area">
+    <div class="reply-bar">
+      <input type="text" placeholder="iMessage" />
+      <button>Send</button>
+    </div>
+    <div class="keyboard">
+      <div class="keyboard-row">
+        <div class="key">q</div><div class="key">w</div><div class="key">e</div><div class="key">r</div><div class="key">t</div>
+        <div class="key">y</div><div class="key">u</div><div class="key">i</div><div class="key">o</div><div class="key">p</div>
+      </div>
+      <div class="keyboard-row">
+        <div class="key">a</div><div class="key">s</div><div class="key">d</div><div class="key">f</div><div class="key">g</div>
+        <div class="key">h</div><div class="key">j</div><div class="key">k</div><div class="key">l</div>
+      </div>
+      <div class="keyboard-row">
+        <div class="key dark wide">⬆︎</div>
+        <div class="key">z</div><div class="key">x</div><div class="key">c</div><div class="key">v</div>
+        <div class="key">b</div><div class="key">n</div><div class="key">m</div>
+        <div class="key dark wide">⌫</div>
+      </div>
+      <div class="keyboard-row">
+        <div class="key dark wide">123</div>
+        <div class="key dark wide">🌐</div>
+        <div class="key dark wide">🎙</div>
+        <div class="key space">space</div>
+        <div class="key dark wide">return</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    function updateTimestamp() {
+      const now = new Date();
+      let hours = now.getHours();
+      let minutes = now.getMinutes();
+      const ampm = hours >= 12 ? 'PM' : 'AM';
+      hours = hours % 12 || 12;
+      minutes = minutes < 10 ? '0' + minutes : minutes;
+      const formattedTime = `${hours}:${minutes} ${ampm}`;
+      document.getElementById("timestamp").textContent = `Today ${formattedTime}`;
+    }
+    updateTimestamp();
+    setInterval(updateTimestamp, 60000);
+  </script>
+</body>
+</html>
