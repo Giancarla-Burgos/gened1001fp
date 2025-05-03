@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Official Ticket Auction</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background: linear-gradient(to bottom, #fef6e4, #fff);
+      color: #333;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background-color: #fffdf7;
+      border: 1px solid #ccc;
+      padding: 40px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+    }
+
+    .disclaimer {
+      background-color: #fff3cd;
+      color: #856404;
+      border: 1px solid #ffeeba;
+      padding: 15px;
+      margin-bottom: 30px;
+      font-size: 0.95rem;
+      border-radius: 6px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    label {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"], select, textarea {
+      padding: 10px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      width: 100%;
+      font-size: 1rem;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .button-link {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .button-link a {
+      background-color: #343a40;
+      color: white;
+      text-decoration: none;
+      padding: 12px 28px;
+      font-weight: bold;
+      border-radius: 5px;
+      font-size: 1rem;
+      transition: background 0.3s ease;
+    }
+
+    .button-link a:hover {
+      background-color: #212529;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Unified Ticket Allocation Auction</h1>
+
+    <div class="disclaimer">
+      <strong>Note:</strong> This questionnaire is part of the official civic bidding process and will be submitted to the Bureau of Internal Mobility and Access. Your responses are confidential. False entries may result in penalties.
+    </div>
+
+    <form>
+      <div>
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName" name="fullName" required />
+      </div>
+
+      <div>
+        <label for="region">Current Region of Residence</label>
+        <input type="text" id="region" name="region" required />
+      </div>
+
+      <div>
+        <label for="reason">Why do you believe you're eligible for relocation?</label>
+        <textarea id="reason" name="reason" required></textarea>
+      </div>
+
+      <div>
+        <label for="bid">Proposed Ticket Bid (credits or resources)</label>
+        <input type="text" id="bid" name="bid" required />
+      </div>
+    </form>
+
+    <div class="button-link">
+      <a href="reflection-room.html">Reflect on this decision a bit more →</a>
+    </div>
+  </div>
+</body>
+</html>
