@@ -7,9 +7,8 @@
     body {
       margin: 0;
       padding: 0;
-      background: radial-gradient(circle at center, #1a0000, #000000);
-      overflow: hidden;
-      color: #eee;
+      background: #f3f3f3;
+      color: #222;
       font-family: 'Georgia', serif;
       display: flex;
       flex-direction: column;
@@ -22,66 +21,66 @@
       text-align: center;
       margin-top: 20px;
       font-size: 2.5em;
-      text-shadow: 0 0 10px rgba(255, 100, 100, 0.6);
+      color: #444;
     }
 
     .mirror-wall {
       display: flex;
-      gap: 20px;
       flex-wrap: wrap;
       justify-content: center;
+      gap: 20px;
       margin-top: 30px;
-      position: relative;
     }
 
     .mirror {
-      width: 140px;
-      height: 200px;
-      background: linear-gradient(145deg, #111, #333);
-      border: 2px solid #660000;
+      width: 160px;
+      height: 220px;
+      background: linear-gradient(145deg, #eaeaea, #ffffff);
+      border: 2px solid #ccc;
       border-radius: 12px;
-      box-shadow: inset 0 0 10px rgba(255,255,255,0.1), 0 0 20px rgba(255, 60, 60, 0.3);
+      box-shadow: inset 0 0 6px rgba(0,0,0,0.1), 0 0 10px rgba(0,0,0,0.05);
       position: relative;
-      transition: transform 0.3s, box-shadow 0.4s;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
       overflow: hidden;
       cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 10px;
+      flex-direction: column;
     }
 
     .mirror:hover {
       transform: scale(1.05);
-      box-shadow: 0 0 25px rgba(255, 80, 80, 0.6);
+      box-shadow: 0 0 12px rgba(0,0,0,0.2);
     }
 
-    .mirror-message {
-      position: absolute;
-      bottom: 10px;
-      width: 100%;
+    .mirror-label {
+      font-weight: bold;
+      font-size: 1.1em;
+      margin-bottom: 8px;
+      color: #000;
+    }
+
+    .mirror-details {
       font-size: 0.85em;
-      text-align: center;
+      color: #555;
       opacity: 0;
-      padding: 0 6px;
-      transition: opacity 1s;
+      transition: opacity 0.5s ease;
     }
 
-    .mirror:hover .mirror-message {
+    .mirror:hover .mirror-details {
       opacity: 1;
     }
 
-    .cracked {
-      background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Cracked_glass.svg/1200px-Cracked_glass.svg.png') center center no-repeat;
-      background-size: cover;
-      filter: grayscale(0.6);
-    }
-
     .portal {
-      animation: pulse 1.5s infinite;
-      border-color: #ff5050;
+      border: 2px solid #4a90e2;
+      box-shadow: 0 0 10px #4a90e2;
     }
 
-    @keyframes pulse {
-      0% { box-shadow: 0 0 10px #ff5050; }
-      50% { box-shadow: 0 0 25px #ff8080; }
-      100% { box-shadow: 0 0 10px #ff5050; }
+    .portal:hover {
+      box-shadow: 0 0 20px #4a90e2;
     }
 
     .buttons {
@@ -89,18 +88,18 @@
     }
 
     .btn {
-      background: #880000;
+      background: #444;
       padding: 12px 20px;
       color: #fff;
       text-decoration: none;
       border-radius: 5px;
       margin: 0 10px;
       font-weight: bold;
-      box-shadow: 0 0 10px rgba(255, 50, 50, 0.4);
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
     }
 
     .btn:hover {
-      background: #aa0000;
+      background: #666;
     }
   </style>
 </head>
@@ -108,22 +107,28 @@
   <h1>The Reflection Room</h1>
   <div class="mirror-wall">
     <div class="mirror">
-      <div class="mirror-message">Spouse<br>“doesn’t want to leave the kids behind either”</div>
+      <div class="mirror-label">Spouse</div>
+      <div class="mirror-details">“Doesn’t want to leave the kids behind either.”</div>
     </div>
     <div class="mirror">
-      <div class="mirror-message">Not the kid’s parent<br>You don’t want to be alone</div>
+      <div class="mirror-label">Not the Kid’s Parent</div>
+      <div class="mirror-details">You don’t want to be alone.</div>
     </div>
     <div class="mirror">
-      <div class="mirror-message">Daughter<br>First born. Studied psychology</div>
+      <div class="mirror-label">Daughter</div>
+      <div class="mirror-details">First born. Studied psychology.</div>
     </div>
     <div class="mirror">
-      <div class="mirror-message">Son<br>Perfect student. Oddly secretive</div>
+      <div class="mirror-label">Son</div>
+      <div class="mirror-details">Perfect student. Oddly secretive.</div>
     </div>
     <div class="mirror">
-      <div class="mirror-message">Yourself<br>Survival instincts</div>
+      <div class="mirror-label">Yourself</div>
+      <div class="mirror-details">Survival instincts.</div>
     </div>
     <div class="mirror portal" onclick="goToNextPath()">
-      <div class="mirror-message">Tomorrow’s the day of the decision...</div>
+      <div class="mirror-label">Tomorrow's the Decision</div>
+      <div class="mirror-details">Stay up or go to bed?</div>
     </div>
   </div>
 
@@ -132,12 +137,6 @@
   </div>
 
   <script>
-    function crackMirror(mirror) {
-      if (!mirror.classList.contains("cracked")) {
-        mirror.classList.add("cracked");
-      }
-    }
-
     function goToNextPath() {
       window.location.href = "path1-lab.html";
     }
