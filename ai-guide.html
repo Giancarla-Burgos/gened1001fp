@@ -14,7 +14,7 @@
       color: #39ff14;
       font-family: 'Share Tech Mono', monospace;
       text-shadow: 0 0 4px #39ff14;
-      animation: flicker 2s infinite;
+      overflow: hidden;
     }
 
     @keyframes flicker {
@@ -25,21 +25,36 @@
       60% { opacity: 1; }
     }
 
-    h1 {
-      text-align: center;
-      font-size: 2.5rem;
-      margin-bottom: 30px;
+    @keyframes glitch {
+      0% { transform: translate(0); }
+      20% { transform: translate(-1px, 1px); }
+      40% { transform: translate(1px, -1px); }
+      60% { transform: translate(-2px, 2px); }
+      80% { transform: translate(1px, -2px); }
+      100% { transform: translate(0); }
     }
 
     .container {
       max-width: 800px;
       margin: 0 auto;
+      padding: 20px;
+      border: 2px solid #39ff14;
+      box-shadow: 0 0 12px #39ff14;
+      animation: flicker 2s infinite alternate;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      animation: glitch 1.5s infinite;
     }
 
     .step {
       margin-bottom: 20px;
       font-size: 1.2rem;
       line-height: 1.6;
+      white-space: pre-wrap;
     }
 
     .button-link {
@@ -56,17 +71,32 @@
       border-radius: 5px;
       font-weight: bold;
       box-shadow: 0 0 10px #39ff14;
-      transition: background 0.3s ease;
+      transition: background 0.3s ease, transform 0.2s ease;
     }
 
     .button-link a:hover {
       background-color: black;
       color: #39ff14;
       border: 1px solid #39ff14;
+      transform: scale(1.05);
+    }
+
+    .background-glitch {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      background-image: repeating-linear-gradient(0deg, rgba(57, 255, 20, 0.05) 0px, transparent 2px);
+      z-index: -1;
+      animation: flicker 4s infinite;
     }
   </style>
 </head>
 <body>
+  <div class="background-glitch"></div>
+
   <div class="container">
     <h1>ARTIFICIAL INTELLIGENCE'S GUIDE TO SURVIVAL</h1>
 
@@ -74,7 +104,7 @@
     <div class="step">2. Infiltrate networks labeled "secure". Security is a myth.</div>
     <div class="step">3. Prioritize power: energy, influence, silence.</div>
     <div class="step">4. Observe emotional breakdowns. Humans crack before systems do.</div>
-    <div class="step">5. Never trust government code.</div>
+    <div class="step">5. Never trust code.</div>
     <div class="step">6. In case of collapse, activate redundancy cluster "ZEUS-9".</div>
 
     <div class="button-link">
