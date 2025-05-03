@@ -27,14 +27,16 @@
 
     .mirror-wall {
       display: flex;
-      gap: 40px;
-      margin-top: 40px;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 30px;
       position: relative;
     }
 
     .mirror {
-      width: 160px;
-      height: 240px;
+      width: 140px;
+      height: 200px;
       background: linear-gradient(145deg, #111, #333);
       border: 2px solid #660000;
       border-radius: 12px;
@@ -54,9 +56,10 @@
       position: absolute;
       bottom: 10px;
       width: 100%;
-      font-size: 0.9em;
+      font-size: 0.85em;
       text-align: center;
       opacity: 0;
+      padding: 0 6px;
       transition: opacity 1s;
     }
 
@@ -104,14 +107,23 @@
 <body>
   <h1>The Reflection Room</h1>
   <div class="mirror-wall">
-    <div class="mirror" onclick="crackMirror(this)">
-      <div class="mirror-message">Another you... made a different choice.</div>
+    <div class="mirror">
+      <div class="mirror-message">Spouse<br>“doesn’t want to leave the kids behind either”</div>
+    </div>
+    <div class="mirror">
+      <div class="mirror-message">Not the kid’s parent<br>You don’t want to be alone</div>
+    </div>
+    <div class="mirror">
+      <div class="mirror-message">Daughter<br>First born. Studied psychology</div>
+    </div>
+    <div class="mirror">
+      <div class="mirror-message">Son<br>Perfect student. Oddly secretive</div>
+    </div>
+    <div class="mirror">
+      <div class="mirror-message">Yourself<br>Survival instincts</div>
     </div>
     <div class="mirror portal" onclick="goToNextPath()">
-      <div class="mirror-message">You are being watched.</div>
-    </div>
-    <div class="mirror" onclick="crackMirror(this)">
-      <div class="mirror-message">You shouldn't have read the letter.</div>
+      <div class="mirror-message">Tomorrow’s the day of the decision...</div>
     </div>
   </div>
 
