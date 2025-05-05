@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Reflection Room</title>
   <style>
     body {
@@ -39,16 +40,15 @@
       border: 2px solid #ccc;
       border-radius: 12px;
       box-shadow: inset 0 0 6px rgba(0,0,0,0.1), 0 0 10px rgba(0,0,0,0.05);
-      position: relative;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      overflow: hidden;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       text-align: center;
-      padding: 10px;
+      display: flex;
       flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      cursor: default;
+      color: inherit;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      padding: 10px;
     }
 
     .mirror:hover {
@@ -74,17 +74,10 @@
       opacity: 1;
     }
 
-    .portal {
-      border: 2px solid #4a90e2;
-      box-shadow: 0 0 10px #4a90e2;
-    }
-
-    .portal:hover {
-      box-shadow: 0 0 20px #4a90e2;
-    }
-
     .buttons {
       margin-top: 40px;
+      display: flex;
+      gap: 20px;
     }
 
     .btn {
@@ -93,9 +86,9 @@
       color: #fff;
       text-decoration: none;
       border-radius: 5px;
-      margin: 0 10px;
       font-weight: bold;
       box-shadow: 0 0 8px rgba(0,0,0,0.1);
+      transition: background 0.3s ease;
     }
 
     .btn:hover {
@@ -110,36 +103,27 @@
       <div class="mirror-label">Spouse</div>
       <div class="mirror-details">“Doesn’t want to leave the kids behind either.”</div>
     </div>
-    <div class="mirror">
-      <div class="mirror-label">Not the Kid’s Parent</div>
-      <div class="mirror-details">You don’t want to be alone.</div>
-    </div>
+    
     <div class="mirror">
       <div class="mirror-label">Daughter</div>
       <div class="mirror-details">First born. Studied psychology.</div>
     </div>
+    
     <div class="mirror">
       <div class="mirror-label">Son</div>
       <div class="mirror-details">Perfect student. Oddly secretive.</div>
     </div>
+    
     <div class="mirror">
       <div class="mirror-label">Yourself</div>
       <div class="mirror-details">Survival instincts.</div>
     </div>
-    <div class="mirror portal" onclick="goToNextPath()">
-      <div class="mirror-label">Tomorrow's the Decision</div>
-      <div class="mirror-details">Stay up or go to bed?</div>
-    </div>
   </div>
 
   <div class="buttons">
+    <a href="awake.html" class="btn">Stay Up</a>
+    <a href="sleep.html" class="btn">Go to Bed</a>
     <a href="index.html" class="btn">Return to Start</a>
   </div>
-
-  <script>
-    function goToNextPath() {
-      window.location.href = "path1-lab.html";
-    }
-  </script>
 </body>
 </html>
