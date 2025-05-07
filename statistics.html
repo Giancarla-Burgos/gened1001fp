@@ -9,10 +9,9 @@
       margin: 0;
       padding: 0;
       height: 100vh;
-      background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Blank_graph.svg/1024px-Blank_graph.svg.png') no-repeat center center fixed;
-      background-size: cover;
-      filter: blur(6px);
+      background: radial-gradient(ellipse at center, #1a1a1a, #000000);
       overflow: hidden;
+      font-family: 'Courier New', Courier, monospace;
     }
 
     .overlay {
@@ -21,14 +20,12 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.8);
-      backdrop-filter: blur(4px);
+      background: rgba(0, 0, 0, 0.85);
       display: flex;
       align-items: center;
       justify-content: center;
       flex-direction: column;
       color: #fff;
-      font-family: 'Courier New', Courier, monospace;
       text-align: center;
     }
 
@@ -40,8 +37,9 @@
 
     p {
       font-size: 1.1rem;
-      opacity: 0.8;
+      opacity: 0.85;
       margin-bottom: 30px;
+      max-width: 600px;
     }
 
     .unlock-btn {
@@ -71,7 +69,8 @@
 <body>
   <div class="overlay">
     <h1>ACCESS RESTRICTED</h1>
-    <p>You do not have sufficient clearance to view statistical data related to this outbreak.</p>
+    <p>You do not have sufficient clearance to view statistical data related to this outbreak.<br>
+    Please contact your local records officer or enter an override code.</p>
     <a href="journal.html" class="unlock-btn">Enter Override Code</a>
   </div>
 </body>
